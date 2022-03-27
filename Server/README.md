@@ -4,11 +4,12 @@ The server supports two methods of storage and can be configured through environ
 
 # Configuration
 
-| Variable | Description | Default | Values |
-| --- | --- | ---
-| DATABASE_MODE | If the server should store data to a database or a file. | Database | `Database | File | MEMORY` |
-| DATABASE_TYPE | If the server is storing to a database, the database provider | SQLITE | TODO: `None | SQL | SQLITE | REDIS` |
-| MM_PORT | The port to expose the server on | 9000 | Int |
+| Variable        | Description                                                                                      | Default                     | Values                        |
+|-----------------|--------------------------------------------------------------------------------------------------|-----------------------------|-------------------------------|
+| DATABASE_MODE   | If the server should store data to a database or a file.                                         | Database                    | `Database,File,MEMORY`        |
+| DATABASE_TYPE   | If the server is storing to a database, the database provider                                    | SQLITE                      | TODO: `None,SQL,SQLITE,REDIS` |
+| MM_PORT         | The port to expose the server on                                                                 | 8000                        | Int                           |
+| MM_DBAPI_STRING | A database connection string to connect via DBAPI. Defaults to use an in memory sqlite database. | sqlite+pysqlite:///:memory: | String                        | 
 
 
 # Developing
