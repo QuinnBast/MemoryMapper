@@ -7,12 +7,14 @@ class Memory(Base):
 
     id = Column(Integer, primary_key=True)
     name = Column(String(30))
-    latitude = Column(Integer)
-    longitude = Column(Integer)
-    date = Column(Integer)
+    description = Column(String)
+    position = Column(String)  # Json representation of the area of the memory. Null if no area is set.
+    startDate = Column(Integer)
+    endDate = Column(Integer)
 
     def __repr__(self):
-        return f"Memory(id={self.id}, name={self.name}, latitude={self.latitude}, longitude={self.longitude}, date={self.date})"
+        return f"Memory(id={self.id}, name={self.name}, description={self.description}, position={self.position}, startDate={self.startDate}, endDate={self.endDate})"
+
 
 class Moment(Base):
     __tablename__ = 'moments'

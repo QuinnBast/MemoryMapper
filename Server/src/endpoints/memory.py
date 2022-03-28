@@ -13,10 +13,11 @@ router = APIRouter(
 @router.put("/")
 def save_memory(request: CreateMemoryRequest):
     memory = Memory(
-        name="NewMemory",
-        latitude=123123,
-        longitude=123123,
-        date=123123123
+        name=request.memoryName,
+        description=request.memoryDescription,
+        position=None,
+        startDate=None,
+        endDate=None,
     )
     session = databaseProvider.get_session()
     session.add(memory)
@@ -27,6 +28,17 @@ def save_memory(request: CreateMemoryRequest):
     return {"items": out}
 
 
+@router.get("/")
+def get_all_memories():
+    session = databaseProvider.get_session()
+    memories = []
+    for row in session.query(Memory):
+        memories.append(row)
+    return {"items": memories}
+
+
 @router.get("/{memory_id}")
-def save_memory(memory_id: int):
-    return {"id": memory_id}
+def get_memory(memory_id: int):
+    session = databaseProvider.get_session()
+    for row in session.query(Memory).filter(Memory.id == memory_id):
+        return row

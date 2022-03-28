@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from endpoints import memory
-from db.tables.memoryTable import Memory
-from dependencies.dependencies import config, databaseProvider
+from dependencies.dependencies import config, databaseProvider, cors
+from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 
 databaseProvider.create_tables()
@@ -9,29 +9,19 @@ databaseProvider.create_tables()
 app = FastAPI()
 app.include_router(memory.router)
 
+app.add_middleware(
+   CORSMiddleware,
+   allow_origins=cors.origins,
+   allow_credentials=True,
+   allow_methods=["*"],
+   allow_headers=["*"],
+)
+
 
 @app.get("/")
-def read_root():
-    memories = databaseProvider.get_session().query(Memory)
-    return {"items": memories}
-
-
-@app.get("/add")
-def read_root():
-    memory = Memory(
-        name="NewMemory",
-        latitude=123123,
-        longitude=123123,
-        date=123123123
-    )
-    session = databaseProvider.get_session()
-    session.add(memory)
-    session.commit()
-    out = []
-    for row in session.query(Memory):
-        out.append(row)
-    return {"items": out}
+async def healthCheck():
+    return {"active": True}
 
 
 if __name__ == '__main__':
-    uvicorn.run(app, port=config.port, host='localhost')
+    uvicorn.run(app, port=config.port, host='0.0.0.0')
