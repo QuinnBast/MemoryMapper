@@ -4,19 +4,19 @@
       v-ripple
       @click="viewMoments">
       <q-card-section horizontal>
-        <q-img :src="randomUrl()">
+        <q-img :src="imageUrls[0]">
           <div class="text-subtitle2 absolute-top text-center">
           {{ title }}
         </div>
         </q-img>
         <q-card-section class="full-width">
-          <q-img :src="randomUrl()"/>
+          <q-img :src="imageUrls[1]"/>
         </q-card-section>
         <q-card-section class="full-width">
-          <q-img :src="randomUrl()"/>
+          <q-img :src="imageUrls[2]"/>
         </q-card-section>
         <q-card-section class="full-width">
-          <q-img :src="randomUrl()"/>
+          <q-img :src="imageUrls[3]"/>
         </q-card-section>
       </q-card-section>
     </q-card>
@@ -37,16 +37,22 @@ export default defineComponent({
       required: true,
     },
   },
+  data() {
+    return {
+      imageUrls: [
+        'https://picsum.photos/600?random=1',
+        'https://picsum.photos/600?random=2',
+        'https://picsum.photos/600?random=3',
+        'https://picsum.photos/600?random=4',
+      ],
+    };
+  },
   methods: {
     viewMoments() {
       console.info(`User wants to view moments for ${this.title}`);
     },
-    randomUrl() {
-      return `https://picsum.photos/600?random=${Math.random() * 200}`;
-    },
   },
   setup() {
-
   },
 });
 </script>
@@ -54,6 +60,7 @@ export default defineComponent({
 <style lang="sass" scoped>
 .card-title-top
   margin: 40px
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 1)
 .full-width
   width: 100%
 </style>

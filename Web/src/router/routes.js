@@ -1,9 +1,16 @@
 const routes = [
   {
     path: '/',
+    component: () => import('layouts/NoMenuLayout.vue'),
+    children: [
+      { path: '', component: () => import('pages/EntryPage.vue') },
+    ],
+  },
+  {
+    path: '/memories',
     component: () => import('layouts/MainLayout.vue'),
     children: [
-      { path: '', component: () => import('pages/IndexPage.vue') },
+      { path: '', component: () => import('pages/MemoryList.vue') },
     ],
   },
   {

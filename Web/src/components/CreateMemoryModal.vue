@@ -79,6 +79,8 @@ export default defineComponent({
         axios.put('http://localhost:8000/memory/', request).then((response) => {
           console.info(response);
           self.visible = false;
+          console.info('Memory Created!');
+          self.$emit('memoryCreated', response);
         }).catch((error) => {
           console.info(error);
           self.visible = true;

@@ -9,3 +9,10 @@ export default defineComponent({
   name: 'MemoryMapper',
 });
 </script>
+
+<style>
+* {
+  font-family: 'Times New Roman', serif;
+  color: white;
+}
+</style>

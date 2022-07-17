@@ -21,6 +21,10 @@ class Moment(Base):
 
     id = Column(Integer, primary_key=True)
     memory_id = Column(Integer, ForeignKey('memories.id'))
+    file_id = Column(String) # ID linking to minio file.
+    position = Column(String)  # Json representation of the location of the memory. Null if no area is set.
+    date = Column(Integer)
+    description = Column(String)
 
     def __repr__(self):
         return f"Moment(id={self.id!r}, memory_id={self.memory_id!r})"

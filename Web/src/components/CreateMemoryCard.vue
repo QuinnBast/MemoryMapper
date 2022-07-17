@@ -1,7 +1,7 @@
 <template>
     <q-card class="card-title-top" bordered>
       <q-btn class="full" color="secondary">
-          <q-icon name="spa" />&nbsp;&nbsp;Create a memory!
+          <q-icon name="spa" />&nbsp;&nbsp;{{ title }}
       </q-btn>
     </q-card>
 </template>
