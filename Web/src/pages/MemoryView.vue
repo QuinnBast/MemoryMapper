@@ -8,8 +8,8 @@
       <div id="map" class="flex flex-center half-map"></div>
       <div class="row" v-if="memory != null">
         <div class="col-8" style="text-align: center;">
-          <h2>{{ memory.name }}</h2>
-          <h3>{{ memory.description }}</h3>
+          <h2 style="color: white">{{ memory.name }}</h2>
+          <h3 style="color: white">{{ memory.description }}</h3>
         </div>
         <div class="col-4">
           <q-btn rounded color="secondary" icon="play_arrow" style="margin-top: 100px;">

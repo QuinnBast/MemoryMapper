@@ -12,37 +12,35 @@
         </q-bar>
         <q-card-section>
             <q-form>
-                <div class="q-pa-md">
-                <b>Provide some details</b>
-                <q-input
-                    type="textarea"
-                    outlined
-                    v-model="description" label="Description">
-                    <template v-slot:prepend>
-                        <q-icon name="description" />
-                    </template>
-                </q-input>
-                </div>
-                <div class="q-pa-md">
+              <div class="q-pa-md">
                 <b>Upload a file</b>
-                <div style="color: black">
                 <q-file filled bottom-slots
-                v-model="file" label="Upload Image" counter>
-                  <template v-slot:prepend>
-                    <q-icon name="cloud_upload" color="black" @click.stop.prevent />
-                  </template>
-                  <template v-slot:append>
-                    <q-icon name="close" color="black" @click.stop.prevent="file = null"
-                    class="cursor-pointer" />
-                  </template>
-                  <template v-slot:file>
-                    <div style="color: black">{{ file.name }}</div>
-                  </template>
-                  <template v-slot:hint>
-                    File to upload
-                  </template>
-                </q-file>
+                  v-model="file" label="Upload Image" counter>
+                    <template v-slot:prepend>
+                      <q-icon name="cloud_upload" color="black" @click.stop.prevent />
+                    </template>
+                    <template v-slot:append>
+                      <q-icon name="close" color="black" @click.stop.prevent="file = null"
+                      class="cursor-pointer" />
+                    </template>
+                    <template v-slot:file>
+                      <div style="color: black">{{ file.name }}</div>
+                    </template>
+                    <template v-slot:hint>
+                      File to upload
+                    </template>
+                  </q-file>
                 </div>
+                <div class="q-pa-md">
+                  <b>Optionally provide some details</b>
+                  <q-input
+                      type="textarea"
+                      outlined
+                      v-model="description" label="Description">
+                      <template v-slot:prepend>
+                          <q-icon name="description" />
+                      </template>
+                  </q-input>
                 </div>
             </q-form>
         </q-card-section>

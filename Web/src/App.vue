@@ -13,6 +13,5 @@ export default defineComponent({
 <style>
 * {
   font-family: 'Times New Roman', serif;
-  color: white;
 }
 </style>

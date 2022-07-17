@@ -104,7 +104,7 @@ export default defineComponent({
 </script>
 
 <style scoped>
-#map { width: 100%; height: 500px; border: 1px solid black }
+#map { width: 100%; height: 100%; border: 1px solid black }
 
 .full-img {
     width: 100%;
